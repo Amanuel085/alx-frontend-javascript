@@ -11,6 +11,12 @@ interface Directors extends Teacher {
   numberOfReports: number;
 }
 
+// Function that prints teacher's name in the required format
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+}
+
+// Sample director object
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -19,22 +25,8 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 
+// Log the director object
 console.log(director1);
 
-// Clear the page
-document.body.innerHTML = "";
-
-// Render Director Info
-const directorContainer = document.createElement("div");
-directorContainer.innerHTML = `
-  <h2>Director Info</h2>
-  <ul>
-    <li><strong>First Name:</strong> ${director1.firstName}</li>
-    <li><strong>Last Name:</strong> ${director1.lastName}</li>
-    <li><strong>Full-Time:</strong> ${director1.fullTimeEmployee}</li>
-    <li><strong>Location:</strong> ${director1.location}</li>
-    <li><strong>Number of Reports:</strong> ${director1.numberOfReports}</li>
-  </ul>
-`;
-
-document.body.appendChild(directorContainer);
+// Log the formatted name using printTeacher
+console.log(printTeacher(director1.firstName, director1.lastName));
