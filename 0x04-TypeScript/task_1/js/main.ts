@@ -11,14 +11,6 @@ interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  lastName: 'Doe',
-  fullTimeEmployee: false,
-  location: 'London',
-  contract: false,
-};
-
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -27,21 +19,10 @@ const director1: Directors = {
   numberOfReports: 17,
 };
 
+console.log(director1);
+
 // Clear the page
 document.body.innerHTML = "";
-
-// Render Teacher Info
-const teacherContainer = document.createElement("div");
-teacherContainer.innerHTML = `
-  <h2>Teacher Info</h2>
-  <ul>
-    <li><strong>First Name:</strong> ${teacher3.firstName}</li>
-    <li><strong>Last Name:</strong> ${teacher3.lastName}</li>
-    <li><strong>Full-Time:</strong> ${teacher3.fullTimeEmployee}</li>
-    <li><strong>Location:</strong> ${teacher3.location}</li>
-    <li><strong>Contract:</strong> ${teacher3.contract}</li>
-  </ul>
-`;
 
 // Render Director Info
 const directorContainer = document.createElement("div");
@@ -56,5 +37,4 @@ directorContainer.innerHTML = `
   </ul>
 `;
 
-document.body.appendChild(teacherContainer);
 document.body.appendChild(directorContainer);
