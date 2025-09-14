@@ -51,12 +51,12 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-// ✅ Exported type predicate function
+// ✅ Exported type predicate function (exact match)
 export function isDirector(employee: Director | Teacher): employee is Director {
   return (employee as Director).workDirectorTasks !== undefined;
 }
 
-// ✅ Exported function to execute work
+// ✅ Exported dispatcher function (exact match)
 export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
