@@ -15,12 +15,10 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-const printTeacher: printTeacherFunction = function (
-  firstName: string,
-  lastName: string
-): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+// Named function declaration with destructuring and exact return string
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName}. ${lastName}`;
+}
 
 // Sample director object
 const director1: Director = {
@@ -35,4 +33,4 @@ const director1: Director = {
 console.log(director1);
 
 // Log the formatted name using printTeacher
-console.log(printTeacher(director1.firstName, director1.lastName));
+console.log(printTeacher({ firstName: director1.firstName, lastName: director1.lastName }));
