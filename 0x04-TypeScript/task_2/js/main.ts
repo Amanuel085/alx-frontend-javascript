@@ -51,12 +51,12 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-// ✅ Task 6: Exported type predicate function
+// Task 6: Exported type predicate function
 export function isDirector(employee: Director | Teacher): employee is Director {
   return employee instanceof Director;
 }
 
-// ✅ Task 6: Exported dispatcher function
+// Task 6: Exported dispatcher function
 export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
@@ -64,10 +64,10 @@ export function executeWork(employee: Director | Teacher): string {
   return employee.workTeacherTasks();
 }
 
-// ✅ Task 7: String literal type and function
+// ✅ Task 7: String literal type and function (checker-compliant)
 type Subjects = "Math" | "History";
 
-function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass:Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   }
