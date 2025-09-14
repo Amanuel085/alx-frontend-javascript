@@ -11,10 +11,16 @@ interface Director extends Teacher {
   numberOfReports: number;
 }
 
-// Function that prints teacher's name in the required format
-function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}. ${lastName}`;
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
 }
+
+const printTeacher: printTeacherFunction = function (
+  firstName: string,
+  lastName: string
+): string {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
 
 // Sample director object
 const director1: Director = {
