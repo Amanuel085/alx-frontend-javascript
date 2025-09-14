@@ -64,6 +64,16 @@ export function executeWork(employee: Director | Teacher): string {
   return employee.workTeacherTasks();
 }
 
+// ✅ Task 7: String literal type and function
+type Subjects = "Math" | "History";
+
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === "Math") {
+    return "Teaching Math";
+  }
+  return "Teaching History";
+}
+
 // Test cases
 console.log(createEmployee(200));                  // Teacher
 console.log(createEmployee(1000));                 // Director
@@ -71,3 +81,6 @@ console.log(createEmployee('$500'));               // Director
 
 console.log(executeWork(createEmployee(200)));     // Getting to work
 console.log(executeWork(createEmployee(1000)));    // Getting to director tasks
+
+console.log(teachClass("Math"));                   // Teaching Math
+console.log(teachClass("History"));                // Teaching History
