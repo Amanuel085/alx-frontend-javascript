@@ -51,12 +51,12 @@ function createEmployee(salary: number | string): Director | Teacher {
   return new Director();
 }
 
-// ✅ Exported type predicate function (exact match)
+// ✅ Task 6: Exported type predicate function
 export function isDirector(employee: Director | Teacher): employee is Director {
-  return (employee as Director).workDirectorTasks !== undefined;
+  return employee instanceof Director;
 }
 
-// ✅ Exported dispatcher function (exact match)
+// ✅ Task 6: Exported dispatcher function
 export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
@@ -65,9 +65,9 @@ export function executeWork(employee: Director | Teacher): string {
 }
 
 // Test cases
-console.log(createEmployee(200));     // Teacher
-console.log(createEmployee(1000));    // Director
-console.log(createEmployee('$500'));  // Director
+console.log(createEmployee(200));                  // Teacher
+console.log(createEmployee(1000));                 // Director
+console.log(createEmployee('$500'));               // Director
 
-console.log(executeWork(createEmployee(200)));    // Getting to work
-console.log(executeWork(createEmployee(1000)));   // Getting to director tasks
+console.log(executeWork(createEmployee(200)));     // Getting to work
+console.log(executeWork(createEmployee(1000)));    // Getting to director tasks
