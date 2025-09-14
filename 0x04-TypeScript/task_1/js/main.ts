@@ -15,12 +15,10 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Named function declaration with destructuring and exact return string
 function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName}. ${lastName}`;
 }
 
-// Sample director object
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -29,8 +27,35 @@ const director1: Director = {
   numberOfReports: 17,
 };
 
-// Log the director object
 console.log(director1);
-
-// Log the formatted name using printTeacher
 console.log(printTeacher({ firstName: director1.firstName, lastName: director1.lastName }));
+
+// ✅ Task 4: StudentClass implementation
+
+interface StudentConstructor {
+  firstName: string;
+  lastName: string;
+}
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+
+  constructor({ firstName, lastName }: StudentConstructor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
